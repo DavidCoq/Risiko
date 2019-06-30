@@ -1,0 +1,318 @@
+--------------------------------------------------------
+--  File creato - martedì-maggio-28-2019   
+--------------------------------------------------------
+
+--------------------------------------------------------
+--  DDL for Table CONFINI
+--------------------------------------------------------
+
+  CREATE TABLE "CONFINI" 
+   (	"ID" NUMBER(*,0), 
+	"NOME_TERRITORI" VARCHAR2(30 BYTE), 
+	"NOME_CONFINI" VARCHAR2(30 BYTE)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table CONTINENTI
+--------------------------------------------------------
+
+  CREATE TABLE "CONTINENTI" 
+   (	"ID" NUMBER(38,0), 
+	"NOME" VARCHAR2(26 BYTE), 
+	"ARMATE_SUPPLEMENTARI" NUMBER(38,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table GIOCATORI
+--------------------------------------------------------
+
+  CREATE TABLE "GIOCATORI" 
+   (	"COLORE" VARCHAR2(26 BYTE), 
+	"NOME" VARCHAR2(26 BYTE), 
+	"ORDINE" NUMBER(38,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Table TERRITORI
+--------------------------------------------------------
+
+  CREATE TABLE "TERRITORI" 
+   (	"ID" NUMBER(38,0), 
+	"NOME" VARCHAR2(26 BYTE), 
+	"OCCUPAZIONE" VARCHAR2(26 BYTE), 
+	"ARMATE" NUMBER(38,0), 
+	"CONTINENTE" NUMBER(38,0)
+   ) SEGMENT CREATION IMMEDIATE 
+  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+ NOCOMPRESS LOGGING
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+REM INSERTING into CONFINI
+SET DEFINE OFF;
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('1','Afganistan','Urali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('2','Afganistan','Ucraina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('3','Afganistan','Medio Oriente');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('4','Afganistan','Cina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('5','Africa del Nord','Egitto');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('6','Africa del Nord','Congo');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('7','Africa del Nord','Africa Orientale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('8','Africa del Nord','Brasile');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('9','Africa del Nord','Europa Occidentale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('10','Africa del Nord','Europa Meridionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('11','Africa del Sud','Congo');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('12','Africa del Sud','Africa Orientale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('13','Africa del Sud','Madagascar');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('14','Africa Orientale','Africa del Sud');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('15','Africa Orientale','Congo');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('16','Africa Orientale','Africa del Nord');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('17','Africa Orientale','Egitto');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('18','Africa Orientale','Madagascar');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('19','Alaska','Kamchatka');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('20','Alaska','Territori del Nord Ovest');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('21','Alaska','Alberta');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('22','Alberta','Alaska');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('23','Alberta','Territori del Nord Ovest');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('24','Alberta','Ontario');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('25','Alberta','Stati Uniti Occidentali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('26','America Centrale','Stati Uniti Occidentali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('27','America Centrale','Stati Uniti Orientali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('28','America Centrale','Venezuela');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('29','Argentina','Perù');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('30','Argentina','Brasile');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('31','Australia Occidentale','Australia Orientale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('32','Australia Occidentale','Nuova Guinea');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('33','Australia Occidentale','Indonesia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('34','Australia Orientale','Australia Occidentale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('35','Australia Orientale','Nuova Guinea');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('36','Australia Orientale','Indonesia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('37','Brasile','Venezuela');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('38','Brasile','Perù');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('39','Brasile','Argentina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('40','Brasile','Africa del Nord');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('41','Cina','Siam');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('42','Cina','India');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('43','Cina','Medio Oriente');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('44','Cina','Afganistan');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('45','Cina','Urali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('46','Cina','Siberia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('47','Cina','Mongolia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('48','Cita','Siberia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('49','Cita','Mongolia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('50','Cita','Kamchatka');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('51','Cita','Jacuzia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('52','Congo','Africa del Nord');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('53','Congo','Africa Orientale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('54','Congo','Africa del Sud');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('55','Egitto','Africa del Nord');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('56','Egitto','Africa Orientale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('57','Egitto','Medio Oriente');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('58','Egitto','Europa Meridionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('59','Europa Meridionale','Europa Occidentale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('60','Europa Meridionale','Europa Settentrionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('61','Europa Meridionale','Ucraina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('62','Europa Meridionale','Medio Oriente');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('63','Europa Meridionale','Egitto');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('64','Europa Meridionale','Africa del Nord');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('65','Europa Occidentale','Gran Bretagna');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('66','Europa Occidentale','Europa Settentrionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('67','Europa Occidentale','Europa Meridionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('68','Europa Occidentale','Africa del Nord');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('69','Europa Settentrionale','Europa Occidentale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('70','Europa Settentrionale','Europa Meridionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('71','Europa Settentrionale','Ucraina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('72','Europa Settentrionale','Scandinavia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('73','Europa Settentrionale','Gran Bretagna');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('74','Giappone','Kamchatka');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('75','Giappone','Mongolia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('76','Gran Bretagna','Europa Occidentale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('77','Gran Bretagna','Europa Settentrionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('78','Gran Bretagna','Scandinavia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('79','Gran Bretagna','Islanda');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('80','Groenlandia','Islanda');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('81','Groenlandia','Quebec');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('82','India','Medio Oriente');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('83','India','Cina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('84','India','Siam');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('85','Indonesia','Siam');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('86','Indonesia','Nuova Guinea');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('87','Indonesia','Australia Occidentale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('88','Islanda','Scandinavia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('89','Islanda','Gran Bretagna');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('90','Islanda','Groenlandia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('91','Jacuzia','Kamchatka');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('92','Jacuzia','Cita');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('93','Jacuzia','Siberia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('94','Kamchatka','Alaska');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('95','Kamchatka','Giappone');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('96','Kamchatka','Cita');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('97','Kamchatka','Mongolia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('98','Kamchatka','Jacuzia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('99','Madagascar','Africa Orientale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('100','Madagascar','Africa del Sud');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('101','Medio Oriente','Europa Meridionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('102','Medio Oriente','Ucraina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('103','Medio Oriente','Afganistan');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('104','Medio Oriente','India');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('105','Medio Oriente','Egitto');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('106','Mongolia','Siberia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('107','Mongolia','Cita');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('108','Mongolia','Kamchatka');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('109','Mongolia','Giappone');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('110','Mongolia','Cina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('111','Nuova Guinea','Australia Orientale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('112','Nuova Guinea','Australia Occidentale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('113','Nuova Guinea','Indonesia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('114','Ontario','Quebec');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('115','Ontario','Stati Uniti Orientali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('116','Ontario','Stati Uniti Occidentali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('117','Ontario','Alberta');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('118','Ontario','Territori del Nord Ovest');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('119','Ontario','Groenlandia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('120','Perù','Venezuela');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('121','Perù','Brasile');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('122','Perù','Argentina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('123','Quebec','Ontario');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('124','Quebec','Stati Uniti Orientali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('125','Quebec','Groenlandia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('126','Scandinavia','Islanda');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('127','Scandinavia','Gran Bretagna');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('128','Scandinavia','Europa Settentrionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('129','Scandinavia','Ucraina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('130','Siam','India');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('131','Siam','Cina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('132','Siam','Indonesia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('133','Siberia','Urali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('134','Siberia','Cina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('135','Siberia','Mongolia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('136','Siberia','Cita');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('137','Siberia','Jacuzia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('138','Stati Uniti Occidentali','Stati Uniti Orientali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('139','Stati Uniti Occidentali','America Centrale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('140','Stati Uniti Occidentali','Alberta');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('141','Stati Uniti Occidentali','Ontario');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('142','Stati Uniti Orientali','Stati Uniti Occidentali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('143','Stati Uniti Orientali','America Centrale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('144','Stati Uniti Orientali','Quebec');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('145','Stati Uniti Orientali','Ontario');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('146','Territori del Nord Ovest','Alaska');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('147','Territori del Nord Ovest','Alberta');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('148','Territori del Nord Ovest','Ontario');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('149','Territori del Nord Ovest','Groenlandia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('150','Ucraina','Scandinavia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('151','Ucraina','Europa Settentrionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('152','Ucraina','Europa Meridionale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('153','Ucraina','Medio Oriente');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('154','Ucraina','Afganistan');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('155','Ucraina','Urali');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('156','Urali','Ucraina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('157','Urali','Afganistan');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('158','Urali','Cina');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('159','Urali','Siberia');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('160','Venezuela','America Centrale');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('161','Venezuela','Perù');
+Insert into CONFINI (ID,NOME_TERRITORI,NOME_CONFINI) values ('162','Venezuela','Brasile');
+REM INSERTING into CONTINENTI
+SET DEFINE OFF;
+Insert into CONTINENTI (ID,NOME,ARMATE_SUPPLEMENTARI) values ('1','America del Nord','5');
+Insert into CONTINENTI (ID,NOME,ARMATE_SUPPLEMENTARI) values ('2','America del Sud','2');
+Insert into CONTINENTI (ID,NOME,ARMATE_SUPPLEMENTARI) values ('3','Europa','5');
+Insert into CONTINENTI (ID,NOME,ARMATE_SUPPLEMENTARI) values ('4','Africa','3');
+Insert into CONTINENTI (ID,NOME,ARMATE_SUPPLEMENTARI) values ('5','Asia','7');
+Insert into CONTINENTI (ID,NOME,ARMATE_SUPPLEMENTARI) values ('6','Oceania','2');
+REM INSERTING into GIOCATORI
+SET DEFINE OFF;
+Insert into GIOCATORI (COLORE,NOME,ORDINE) values ('Blu','Rossana','3');
+Insert into GIOCATORI (COLORE,NOME,ORDINE) values ('Verdi','Chiara','2');
+Insert into GIOCATORI (COLORE,NOME,ORDINE) values ('Rosse','Franco','1');
+Insert into GIOCATORI (COLORE,NOME,ORDINE) values ('Viola','Giulio','4');
+REM INSERTING into TERRITORI
+SET DEFINE OFF;
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('1','Alaska','Rosse','1','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('2','Territori del Nord Ovest','Verdi','5','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('3','Groenlandia','Verdi','1','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('4','Alberta','Verdi','5','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('5','Ontario','Blu','1','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('6','Quebec','Rosse','1','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('7','Stati Uniti Occidentali','Blu','5','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('8','Stati Uniti Orientali','Blu','5','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('9','America Centrale','Blu','2','1');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('10','Venezuela','Verdi','2','2');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('11','Perù','Verdi','4','2');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('12','Brasile','Verdi','3','2');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('13','Argentina','Blu','1','2');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('14','Islanda','Rosse','3','3');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('15','Scandinavia','Rosse','3','3');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('16','Gran Bretagna','Verdi','1','3');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('17','Europa Settentrionale','Blu','1','3');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('18','Europa Occidentale','Blu','5','3');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('19','Europa Meridionale','Blu','1','3');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('20','Ucraina','Blu','1','3');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('21','Africa del Nord','Verdi','1','4');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('22','Egitto','Rosse','4','4');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('23','Congo','Verdi','1','4');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('24','Africa Orientale','Verdi','4','4');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('25','Africa del Sud','Verdi','3','4');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('26','Madagascar','Blu','5','4');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('27','Urali','Blu','5','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('28','Siberia','Rosse','2','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('29','Jacuzia','Rosse','3','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('30','Cita','Rosse','7','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('31','Kamchatka','Blu','1','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('32','Giappone','Rosse','1','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('33','Mongolia','Rosse','2','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('34','Afganistan','Blu','2','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('35','Medio Oriente','Blu','1','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('36','India','Rosse','2','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('37','Cina','Blu','1','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('38','Siam','Blu','3','5');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('39','Indonesia','Rosse','2','6');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('40','Nuova Guinea','Rosse','6','6');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('41','Australia Orientale','Rosse','7','6');
+Insert into TERRITORI (ID,NOME,OCCUPAZIONE,ARMATE,CONTINENTE) values ('42','Australia Occidentale','Rosse','1','6');
+--------------------------------------------------------
+--  DDL for Index CONFINI_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "CONFINI_PK" ON "CONFINI" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index GIOCATORI_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "GIOCATORI_PK" ON "GIOCATORI" ("COLORE") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;
+--------------------------------------------------------
+--  DDL for Index TERRITORI_PK
+--------------------------------------------------------
+
+  CREATE UNIQUE INDEX "TERRITORI_PK" ON "TERRITORI" ("ID") 
+  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+  TABLESPACE "USERS" ;

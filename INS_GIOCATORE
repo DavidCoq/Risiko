@@ -1,0 +1,20 @@
+create or replace PROCEDURE "INS_GIOCATORE" (
+    rec_giocatore_colore   IN   giocatori.colore%TYPE,
+    rec_giocatore_nome     IN   giocatori.nome%TYPE,
+    rec_giocatore_ordine   IN   giocatori.ordine%TYPE
+) IS
+BEGIN
+    INSERT INTO giocatori (
+        colore,
+        nome,
+        ordine
+    ) VALUES (
+        rec_giocatore_colore,
+        rec_giocatore_nome,
+        rec_giocatore_ordine
+    );
+
+EXCEPTION
+    WHEN dup_val_on_index THEN
+        dbms_output.put_line('ATTENZIONE COLORE DUPLICATO ' || rec_giocatore_colore);
+END;

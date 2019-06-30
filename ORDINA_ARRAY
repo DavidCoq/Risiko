@@ -1,0 +1,24 @@
+create or replace PROCEDURE          "ORDINA_ARRAY" (arr IN OUT array_risult_lanci) IS
+    temp   NUMBER;
+    n      NUMBER;
+
+BEGIN
+
+    n := arr.count - 1;
+    FOR i IN 1..arr.count - 1 LOOP
+        FOR j IN 1..n LOOP IF arr(j) < arr(j + 1) THEN
+            temp := arr(j);
+            arr(j) := arr(j + 1);
+            arr(j + 1) := temp;
+        END IF;
+        END LOOP;
+
+        n := n - 1;
+    END LOOP;
+/*
+    FOR i IN 1..arr.count LOOP dbms_output.put_line(arr(i));
+    END LOOP;
+*/
+
+END ordina_array;
+

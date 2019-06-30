@@ -1,0 +1,49 @@
+create or replace PROCEDURE          "CONTROLLO_CONQUISTA" (
+    terr_1   territori.nome%TYPE,
+    terr_2   territori.nome%TYPE
+    
+) IS
+    perdente territori.nome%TYPE;
+    --vincente perdente;
+    nuova_occupazione territori.occupazione%TYPE;
+    suddivisione_armate territori.armate%TYPE;
+
+    armata_vincente territori.armate%TYPE;
+
+BEGIN
+    SELECT nome INTO perdente FROM territori WHERE armate = 0;
+        IF perdente = terr_1 THEN
+            --perdente.armate = vincente.armate AND perdente.occupazione = vincente.occupazione;
+            SELECT armate INTO armata_vincente FROM territori WHERE nome = terr_2;
+            suddivisione_armate := dbms_random.value(1,(armata_vincente-1));
+
+            UPDATE territori
+               SET occupazione = (SELECT occupazione FROM territori WHERE nome = terr_2), armate = suddivisione_armate
+               WHERE nome = terr_1;
+            UPDATE territori
+               SET armate = armate - suddivisione_armate
+               WHERE nome= terr_2;
+            dbms_output.put_line('CONQUISTA DI ' || terr_1);
+        ELSE
+            --vincente.armate = perdente.armate AND vincente.occupazione = perdente.occupazione;
+            SELECT armate INTO armata_vincente FROM territori WHERE nome = terr_1;
+            suddivisione_armate := dbms_random.value(1,(armata_vincente-1));
+
+            UPDATE territori
+               SET occupazione = (SELECT occupazione FROM territori WHERE nome = terr_1), armate = suddivisione_armate
+               WHERE nome = terr_2;
+            UPDATE territori
+               SET armate = armate - suddivisione_armate
+               WHERE nome= terr_1;
+
+        dbms_output.put_line('CONQUISTA DI ' || terr_2);
+    END IF;
+
+EXCEPTION
+    WHEN no_data_found THEN
+        dbms_output.put_line('NESSUNO DEI TERRITORI E STATO ANCORA CONQUISTATO');
+        NULL;
+
+
+END controllo_conquista;
+

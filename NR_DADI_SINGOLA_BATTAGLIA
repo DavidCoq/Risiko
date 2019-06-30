@@ -1,0 +1,25 @@
+create or replace PROCEDURE "NR_DADI_SINGOLA_BATTAGLIA" (
+    nr_armate_attacco   IN OUT  INTEGER,
+    nr_armate_difesa    IN OUT  INTEGER,
+    nr_dadi_attacco     OUT     INTEGER,
+    nr_dadi_difesa      OUT     INTEGER
+) IS
+BEGIN
+    IF ( nr_armate_attacco >= 3 ) THEN
+        nr_dadi_attacco := 3;
+    ELSIF ( nr_armate_attacco = 2 ) THEN
+        nr_dadi_attacco := 2;
+    ELSIF ( nr_armate_attacco = 1 ) THEN
+        nr_dadi_attacco := 1;
+    END IF;
+
+--inizio controllo dadi difensore
+
+    nr_dadi_difesa := nr_armate_difesa;
+    IF ( nr_armate_difesa > 3 ) THEN
+        nr_dadi_difesa := 3;
+    END IF;
+    dbms_output.put_line('Nr dadi Attacco ' || nr_dadi_attacco);
+    dbms_output.put_line('Nr dadi difesa ' || nr_dadi_difesa);
+    nr_armate_attacco := nr_armate_attacco - nr_dadi_attacco;
+END nr_dadi_singola_battaglia;

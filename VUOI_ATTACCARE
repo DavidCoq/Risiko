@@ -1,0 +1,31 @@
+create or replace PROCEDURE "VUOI_ATTACCARE" IS
+
+    estraz_nome_terr_attacco territori.nome%TYPE;
+    estraz_nome_terr_difesa territori.nome%TYPE;
+    nr_armate_attacco INTEGER;
+    nr_armate_difesa INTEGER;
+    flag boolean := false;
+    nr_dadi_attacco INTEGER;
+    nr_dadi_difesa INTEGER;
+    giocatore_att   array_risult_lanci;
+    giocatore_dif   array_risult_lanci;
+
+BEGIN
+        --dbms_output.put_line('hai detto sì');
+        pianificazione(estraz_nome_terr_attacco,estraz_nome_terr_difesa, nr_armate_attacco,nr_armate_difesa);
+        dbms_output.put_line(estraz_nome_terr_attacco || ' VS. ' || estraz_nome_terr_difesa);
+        dbms_output.put_line(estraz_nome_terr_attacco || ' HA SCELTO DI ATTACCARE CON NR ARMATE ' || nr_armate_attacco);
+
+        LOOP
+        nr_dadi_singola_battaglia(nr_armate_attacco,nr_armate_difesa,nr_dadi_attacco,nr_dadi_difesa);
+        giocatore_att := func_lancio_dadi(nr_dadi_attacco);
+        giocatore_dif := func_lancio_dadi(nr_dadi_difesa);
+        verifica_battaglia(estraz_nome_terr_attacco, estraz_nome_terr_difesa, giocatore_att, giocatore_dif);
+    EXIT WHEN nr_armate_attacco = 0;
+    END LOOP;
+
+    dbms_output.put_line('FINE TURNO DI ATTACCO');
+    dbms_output.put_line('');
+
+
+END;

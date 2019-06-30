@@ -1,0 +1,40 @@
+create or replace PROCEDURE          "TURNO_ATTACCO_COMPLETO" IS 
+    risposta    BOOLEAN;
+    cont_batt INTEGER := 0;
+    counter_conquista_mondiale INTEGER;
+    colore_vincente territori.occupazione%TYPE;
+
+BEGIN
+        risposta := func_vero_falso;
+        WHILE risposta = TRUE AND cont_batt <3 LOOP
+            dbms_output.put_line('NUOVA BATTAGLIA');
+            vuoi_attaccare;
+            cont_batt := cont_batt +1;
+        END LOOP;
+    dbms_output.put_line('HAI SCELTO DI PROSEGUIRE IL TURNO');
+
+        risposta := func_vero_falso;
+        IF risposta = TRUE THEN
+        dbms_output.put_line('VUOI SPOSTARE LE ARMATE? SI');
+        dbms_output.put_line('SPOSTA ARMATE');
+        ELSE
+        dbms_output.put_line('VUOI SPOSTARE LE ARMATE? NO');
+
+        SELECT 
+            COUNT (DISTINCT occupazione)
+            INTO counter_conquista_mondiale
+            FROM territori;
+
+       IF counter_conquista_mondiale=1 THEN
+         SELECT DISTINCT
+             occupazione
+            INTO colore_vincente
+            FROM territori;
+
+         dbms_output.put_line('LE ARMATE '|| colore_vincente||' HANNO CONQUISTATO IL MONDO');
+
+         ELSE
+        dbms_output.put_line('CAMBIO GIOCATORE');
+        END IF;
+        END IF;
+END;

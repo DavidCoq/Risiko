@@ -1,0 +1,27 @@
+create or replace FUNCTION          "RICERCA_CONFINI" (
+    estraz_nome_terr_attacco   territori.nome%TYPE,
+    estraz_nome_terr_difesa    territori.nome%TYPE
+) RETURN BOOLEAN AS
+    CURSOR cursore_confini_gioc IS
+    SELECT
+        *
+    FROM
+        confini
+    WHERE
+        confini.nome_territori = estraz_nome_terr_attacco;
+
+    flag BOOLEAN := false;
+BEGIN
+    FOR rec_confini_gioc IN cursore_confini_gioc LOOP
+        IF rec_confini_gioc.nome_confini = estraz_nome_terr_difesa THEN
+            --dbms_output.put_line(estraz_nome_terr_attacco ||' attacca ' || estraz_nome_terr_difesa);
+            flag := true;
+        END IF;
+        END LOOP;
+        /*IF flag = false THEN
+            dbms_output.put_line('Non puoi attaccare questo Stato');
+        END IF;
+        */
+    RETURN flag;
+END ricerca_confini;
+

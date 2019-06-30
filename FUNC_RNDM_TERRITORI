@@ -1,0 +1,38 @@
+create or replace FUNCTION "FUNC_RNDM_TERRITORI" RETURN territori.nome%TYPE
+          IS
+    conta_terr NUMBER;
+    ris_terr INTEGER;
+    conta_terr_ciclo NUMBER := 1;
+    estraz_nome_terr
+    territori.nome%TYPE;
+
+BEGIN
+--CONTARE NR_TERRITORI
+    SELECT
+        COUNT(*)
+    INTO conta_terr
+    FROM
+        territori;
+
+--OTTENERE NR_RANDOM 1..NR_TERRITORI
+
+    ris_terr := dbms_random.value(1, conta_terr);
+    --dbms_output.put_line(ris_terr);
+
+--ITERARE TAB_TERRITORI X IL NR_RANDOM
+    FOR row_territori IN (
+        SELECT
+            nome
+        FROM
+            territori
+    ) LOOP
+        --dbms_output.put_line(row_territori.nome);
+        estraz_nome_terr := row_territori.nome;
+        conta_terr_ciclo := conta_terr_ciclo + 1;
+        EXIT WHEN conta_terr_ciclo = ris_terr;
+    END LOOP;
+
+--ESTRARRE TERRITORIO.NOME
+    --dbms_output.put_line(estraz_nome_terr);
+    RETURN estraz_nome_terr;
+END func_rndm_territori;

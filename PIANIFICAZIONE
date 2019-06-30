@@ -1,0 +1,44 @@
+create or replace PROCEDURE          "PIANIFICAZIONE" (
+    estraz_nome_terr_attacco OUT territori.nome%TYPE,
+    estraz_nome_terr_difesa OUT territori.nome%TYPE,
+    nr_armate_attacco OUT INTEGER,
+    nr_armate_difesa OUT INTEGER
+) IS
+    attacco_colore territori.occupazione%TYPE;
+    flag_confini boolean := false;
+    difesa_colore territori.occupazione%type;
+
+BEGIN
+    -------
+    LOOP 
+        LOOP
+            estraz_nome_terr_attacco := func_rndm_territori;
+            SELECT armate INTO nr_armate_attacco FROM territori WHERE nome = estraz_nome_terr_attacco;
+            --DBMS_OUTPUT.PUT_LINE(estraz_nome_terr_attacco||': '||nr_armate_attacco);
+        EXIT WHEN nr_armate_attacco >1;
+        END LOOP;
+
+
+        estraz_nome_terr_difesa := func_rndm_territori;
+        SELECT armate INTO nr_armate_difesa FROM territori WHERE nome = estraz_nome_terr_difesa;
+
+        nr_armate_attacco := dbms_random.value(1,(nr_armate_attacco-1));
+        --nr_armate_difesa := dbms_random.value(nr_armate_attacco,(nr_armate_difesa-1));
+
+        --nr_dadi_attacco := nr_armate_attacco;
+        --nr_dadi_difesa := nr_armate_difesa;
+      SELECT occupazione
+        INTO attacco_colore
+        FROM territori
+        WHERE nome = estraz_nome_terr_attacco;
+
+        SELECT occupazione INTO difesa_colore FROM territori WHERE nome = estraz_nome_terr_difesa;
+
+        IF  attacco_colore != difesa_colore THEN
+              flag_confini:=ricerca_confini(estraz_nome_terr_attacco,estraz_nome_terr_difesa);
+        END IF;
+
+      EXIT WHEN flag_confini = TRUE;
+    END LOOP;
+
+END;

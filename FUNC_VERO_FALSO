@@ -1,0 +1,14 @@
+create or replace FUNCTION "FUNC_VERO_FALSO" RETURN BOOLEAN IS
+    risultato   INTEGER;
+    risposta BOOLEAN;
+BEGIN
+    risultato := dbms_random.value(0, 1);
+    CASE
+        WHEN risultato = 0 THEN
+            risposta := FALSE;
+        ELSE
+            risposta := TRUE;
+    END CASE;
+RETURN risposta;
+END;
+

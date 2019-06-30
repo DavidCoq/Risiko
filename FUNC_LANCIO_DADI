@@ -1,0 +1,17 @@
+create or replace FUNCTION "FUNC_LANCIO_DADI" (armate_numero NUMBER) return array_risult_lanci
+ IS
+    v_array array_risult_lanci;
+    num_random_int integer;
+    begin
+        v_array  :=array_risult_lanci(0,0,0);   
+
+            FOR j IN 1..armate_numero LOOP
+                num_random_int := dbms_random.value(1,6);
+                v_array(j) := num_random_int;
+            END LOOP;
+
+            ordina_array(v_array);
+
+    return v_array;
+
+end;

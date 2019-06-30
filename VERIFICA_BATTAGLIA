@@ -1,0 +1,30 @@
+create or replace PROCEDURE          "VERIFICA_BATTAGLIA" (
+    terr_att territori.nome%TYPE,
+    terr_dif territori.nome%TYPE,
+    giocatore_att array_risult_lanci,
+    giocatore_dif array_risult_lanci) IS
+      BEGIN
+          FOR i IN giocatore_att.first..giocatore_att.last LOOP
+
+        IF giocatore_att(i) > 0 AND giocatore_dif(i) > 0 THEN
+            dbms_output.put_line('Giocatore attaccante '||'lancio nr '|| i|| ': '|| giocatore_att(i));
+            dbms_output.put_line('Giocatore attacato '||'lancio nr '|| i|| ': '|| giocatore_dif(i));
+            IF giocatore_att(i) > giocatore_dif(i) THEN
+                dbms_output.put_line('Giocatore attaccante ha vinto');
+                dbms_output.put_line('');
+                UPDATE territori 
+                    SET armate = armate -1 
+                    WHERE nome = terr_dif;  
+            ELSE
+                dbms_output.put_line('Giocatore difensore ha vinto');
+                dbms_output.put_line('');
+                    UPDATE territori 
+                        SET armate = armate -1 
+                        WHERE nome = terr_att;
+            END IF;
+        END IF;
+
+    END LOOP;
+    controllo_conquista(terr_att,terr_dif);
+END verifica_battaglia;
+
