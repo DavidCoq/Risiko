@@ -1,4 +1,4 @@
-create or replace PROCEDURE          "CONTROLLO_CONQUISTA" (
+create or replace PROCEDURE "CONTROLLO_CONQUISTA" (
     terr_1   territori.nome%TYPE,
     terr_2   territori.nome%TYPE
     
